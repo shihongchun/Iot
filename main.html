@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>实时检测系统</title>
+  <script src="font/iconfont.js"></script>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+    .icon {
+      width: 5em;
+      height: 5em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+    /*头部样式*/
+    #head-content {
+      display: flex;
+      justify-content: space-around;
+      border-bottom: 1px solid #eee;
+    }
+    .head-left {
+      font-size: 2em;
+      line-height: 6;
+      color: #33a3a2;
+      text-align: center;
+    }
+    .head-temperature {
+      font-size: 1em;
+      height: 12em;
+      line-height: 20;
+      color: #F66532;
+      text-align: center;
+    }
+    input#the-temperature {
+      width: 5em;
+      height: 2em;
+      margin: 0 1em;
+      padding-left: 0.5em;
+      border: none;
+      border-bottom: 1px solid #F66532;
+      color: #F66532;
+      outline: none;
+    }
+    .head-style {
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 1em;
+    }
+    .head-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 8em;
+      margin: 0 2em;
+    }
+
+    /*按钮*/
+    .button-toggle {
+      position: relative;
+      width: 2.5em;
+      height: 2.5em;
+      background-color: #ddd;
+      color: #fff;
+      cursor: pointer;
+    }
+    .button-toggle::before {
+      display: block;
+      position: absolute;
+      content: 'ON';
+      width: 2.5em;
+      height: 2.5em;
+      line-height: 2.5;
+      text-align: center;
+      left: -1.25em;
+      background-color: #ddd;
+      border-radius: 50%;
+    }
+    .button-toggle::after {
+      display: block;
+      position: absolute;
+      content: 'OFF';
+      width: 2.5em;
+      height: 2.5em;
+      line-height: 2.5;
+      text-align: center;
+      right: -1.25em;
+      background-color: #ddd;
+      border-radius: 50%;
+    }
+    .button-on {
+      background-color: #3455D8;
+    }
+    .button-on::before, .button-on::after {
+      background-color: #3455D8;
+    }
+    .button-circle {
+      position: absolute;
+      width: 2.1em;
+      height: 2.1em;
+      top: 0.2em;
+      left: -1em;
+      border-radius: 50%;
+      background-color: #fff;
+      z-index: 5;
+    }
+    .hot {
+      color: red;
+    }
+    .kongzhi {
+      color: #1296db;
+    }
+    /*表格样式*/
+    #surface-content {
+      width: 80%;
+      height: 25em;
+      margin: 5em auto;
+    }
+    @media screen and (max-width: 960px) {
+      #head-content {
+        width: 100%;
+        min-height: 20em;
+        flex-direction: column;
+      }
+      .head-left {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .head-temperature {
+        width: 100%;
+        height: 8em;
+        line-height: 8;
+      }
+      .head-style {
+        width: 100%;
+        justify-content: space-around;
+      }
+      .head-item {
+        margin: 0;
+      }
+      #surface-content {
+        width: 90%;
+        margin: 3em auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="head-content">
+    <div class="head-left">IoT远程温控智能系统</div>
+    <div class="head-temperature">
+      <lable>设定温度:</lable><input id="the-temperature" type="number" min="-100" max="100"><label>±1℃</label>
+    </div>
+    <div class="head-style">
+      <div class="head-item">
+        <svg class="icon" aria-hidden="true">
+          <use class="hot" xlink:href="#icon-hot"></use>
+        </svg>
+        <div class="button-toggle">
+          <div class="button-circle"></div>
+        </div>
+      </div>
+      <div class="head-item">
+        <svg class="icon" aria-hidden="true">
+          <use xlink:href="#icon-fengsu"></use>
+        </svg>
+        <div class="button-toggle">
+          <div class="button-circle"></div>
+        </div>
+      </div>
+      <div class="head-item">
+        <svg class="icon" aria-hidden="true">
+          <use class="kongzhi" xlink:href="#icon-kongzhiqi"></use>
+        </svg>
+        <div class="button-toggle">
+          <div class="button-circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="surface-content"></div>
+  <script src="js/echarts.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

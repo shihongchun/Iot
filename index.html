@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>登录</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-image: url('./image/1.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    #login-content {
+      width: 100%;
+      min-height: 10em;
+    }
+    #login-form {
+      margin: 5em auto;
+      width: 20em;
+      height: 25em;
+      text-align: center;
+      background-color: #2068D1;
+      box-shadow: 5px 5px 5px #2068D1;
+      opacity: 0.7;
+    }
+    .login-lable {
+      height: 5em;
+      line-height: 5em;
+      color: #22C8D9;
+    }
+    .login-input {
+      width: 90%;
+      height: 3em;
+      border: none;
+      margin-top: 3em;
+      outline: none;
+      padding-left: 0.5em;
+      font-size: 0.8em;
+      color: #634C09;
+      background-color: #64C5F6;
+    }
+    .login-button {
+      display: block;
+      margin: 5em auto;
+      width: 90%;
+      height: 2.5em;
+      background-color: #1A7DBD;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      outline: none;
+    }
+    @media screen and (max-width: 960px) {
+      body {
+        background-image: none;
+        background-color: #fff;
+      }
+      #login-form {
+        width: 80%;
+        box-shadow: none;
+        background-color: #fff;
+        opacity: 1;
+      }
+      .login-input {
+        background-color: #fff;
+        border-bottom: 1px solid #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="login-content">
+    <div id="login-form">
+      <div class="login-lable">
+        <span>管理员登录</span>
+      </div>
+      <input class="login-username login-input" type="text" required="required" autofocus="autofocus" placeholder="请输入账号...">
+      <input class="login-password login-input" type="password" required="required" placeholder="请输入密码...">
+      <button class="login-button" type="submit" onclick="login()">登录</button>
+    </div>
+  </div>
+  <script>
+    function login () {
+      let username = document.getElementsByClassName('login-username')[0].value
+      let password = document.getElementsByClassName('login-password')[0].value
+      if(username === '123456' && password === '666666') {
+        window.location.href = './main.html'
+      } else {
+        alert('账户或密码错误')
+      }
+    }
+  </script>
+</body>
+</html>
